@@ -1,15 +1,24 @@
 const express = require('express');
 const path = require('path');
+const api = require('./routes/index');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.port || 3001;
+
+// Middleware for parsing JSON and urlencoded form data 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use('/api', api)
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => res.send('Navigate to /notes'));
+// get route for index 
+app.get('/', (req, res) =>
+    res.sendFile(path.join(__dirname, './public/index.html')));
 
+// get route for notes 
 app.get('/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, './public/notes.html'))
+    res.sendFile(path.join(__dirname, './public/notes.html')),
 );
 
 app.listen(PORT, () =>
