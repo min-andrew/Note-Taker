@@ -26,6 +26,8 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### Demonstration 
 
+![11-express-homework-demo-01](https://user-images.githubusercontent.com/58195643/201222242-b1a3542b-7cc3-4ffe-967d-e1fc2e555099.png)
+
 https://peaceful-springs-68756.herokuapp.com/notes
 
 ### Dependencies
